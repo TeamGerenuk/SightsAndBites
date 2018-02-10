@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import Search from "../Components/Search";
-import Results from "../Components/Results";
+import ResultContainer from "../Components/ResultContainer";
 
 export default class Body extends Component {
   constructor(props) {
@@ -16,37 +16,14 @@ export default class Body extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // updateSights(response) {
-  //   this.setState({ sights: response.data.results });
-  // }
-
   handleChange(event) {
     this.setState({ city: event.target.value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    // do the api calls here
 
-    //   axios
-    //     .get(
-    //       "https://api.yelp.com/v3/businesses/search?location=%" +
-    //         this.state.city +
-    //         "&categories=Food&sort_by=rating",
-    //       {
-    //         headers: {
-    //           Authorization:
-    //             "Bearer Y4NDfjO891ERjcyaIa2z7Q2pjAjqtBcYoU7XLWpXZotV2EtOd3ZH5CrsCCrSgLEJN6FkHZEXbfCJdEWBuyVDY7u6KyvL0osIsgLPdjVPKX4aIgdF8xKYWecaj_J9WnYx"
-    //         }
-    //       }
-    //     )
-    //     .then(function(response) {
-    //       console.log("response", response);
-    //     })
-    //     .catch(function(err) {
-    //       console.log("err", err);
-    //     });
-    // }
+    //making ajax request to google's places api
     axios
       .get(
         "https://maps.googleapis.com/maps/api/place/textsearch/json?query=attractions+in+" +
@@ -64,10 +41,8 @@ export default class Body extends Component {
           credentials: "same-origin"
         }
       )
-      .then(function(response) {
-        console.log("response", response);
+      .then(response => {
         this.setState({ sights: response.data.results });
-        // this.updateSights(response);
       })
       .catch(function(err) {
         console.log("err", err);
@@ -82,8 +57,10 @@ export default class Body extends Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
-        <Results />
-        <Results />
+        {/* results for 'sights' */}
+        <div className="result-container">
+          <ResultContainer sights={this.state.sights} />
+        </div>
       </div>
     );
   }
