@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import axios from "axios";
+
 import Search from "../Components/Search";
 import Results from "../Components/Results";
 
@@ -20,7 +22,7 @@ export default class Body extends Component {
 
   handleSubmit(event) {
     //do the api calls here
-
+    axios.get(params);
     event.preventDefault();
   }
 
