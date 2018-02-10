@@ -21,9 +21,27 @@ export default class Body extends Component {
   }
 
   handleSubmit(event) {
-    //do the api calls here
-    axios.get(params);
     event.preventDefault();
+    //do the api calls here
+    const config = {
+      headers: {
+        Authorization:
+          "Bearer Y4NDfjO891ERjcyaIa2z7Q2pjAjqtBcYoU7XLWpXZotV2EtOd3ZH5CrsCCrSgLEJN6FkHZEXbfCJdEWBuyVDY7u6KyvL0osIsgLPdjVPKX4aIgdF8xKYWecaj_J9WnYx"
+      }
+    };
+    axios
+      .get(
+        "https://api.yelp.com/v3/businesses/search?location=%" +
+          this.state.city +
+          "&categories=Food&sort_by=rating",
+        config
+      )
+      .then(function(response) {
+        console.log("response", response);
+      })
+      .catch(function(err) {
+        console.log("err", err);
+      });
   }
 
   render() {
