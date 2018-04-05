@@ -4,6 +4,7 @@ import "./App.css";
 
 import Header from "./Components/Header";
 
+//sights and bites updating
 class App extends Component {
   constructor() {
     super();
@@ -16,6 +17,8 @@ class App extends Component {
     fetch("/api/message")
       .then(response => response.json())
       .then(json => this.setState({ message: json }));
+
+
   }
 
   render() {

@@ -47,6 +47,18 @@ export default class Body extends Component {
       .catch(function(err) {
         console.log("err", err);
       });
+
+
+      axios
+        .post(
+          "api/google",
+          {
+            sights: this.state.city
+          }
+        ).then(response =>{
+          console.log(response);
+        })
+
   }
 
   render() {
@@ -57,10 +69,10 @@ export default class Body extends Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
-        {/* results for 'sights' */}
-        <div className="result-container">
-          <ResultContainer sights={this.state.sights} />
-        </div>
+
+        <resultContain sights= {this.state.sights}/>
+        <resultContain />
+
       </div>
     );
   }
