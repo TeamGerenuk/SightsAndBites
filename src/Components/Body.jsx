@@ -64,14 +64,26 @@ export default class Body extends Component {
           credentials: "same-origin"
         }
       )
-      .then(function(response) {
+      .then(response =>{
         console.log("response", response);
-        this.setState({ sights: response.data.results });
+        return this.setState({ sights: response.data.results });
         // this.updateSights(response);
       })
       .catch(function(err) {
         console.log("err", err);
       });
+
+
+      axios
+        .post(
+          "api/google",
+          {
+            sights: this.state.city
+          }
+        ).then(response =>{
+          console.log(response);
+        })
+
   }
 
   render() {
@@ -82,8 +94,8 @@ export default class Body extends Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
-        <Results />
-        <Results />
+        <resultContain sights= {this.state.sights}/>
+        <resultContain />
       </div>
     );
   }
