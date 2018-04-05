@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 import Search from "../Components/Search";
-import Results from "../Components/Results";
+import ResultContainer from "../Components/ResultContainer";
 
 export default class Body extends Component {
   constructor(props) {
@@ -16,18 +16,14 @@ export default class Body extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  // updateSights(response) {
-  //   this.setState({ sights: response.data.results });
-  // }
-
   handleChange(event) {
     this.setState({ city: event.target.value });
   }
 
   handleSubmit(event) {
     event.preventDefault();
-    // do the api calls here
 
+<<<<<<< HEAD
       axios
         .post(
           "https://api.yelp.com/v3/businesses/search?location=%" +
@@ -73,6 +69,45 @@ export default class Body extends Component {
   //       console.log("err", err);
   //     });
   // }
+=======
+    //making ajax request to google's places api
+    axios
+      .get(
+        "https://maps.googleapis.com/maps/api/place/textsearch/json?query=attractions+in+" +
+          this.state.city +
+          "&key=AIzaSyCX9EPP7EsRb9xbWmupveSgdW2l_AJ9JGU",
+        {
+          mode: "no-cors",
+          header: {
+            "Access-Control-Allow-Orgin": "http://localhost:3000",
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Headers":
+              "Origin, X-Requested-With, Content-Type, Accept"
+          },
+          withCredentials: true,
+          credentials: "same-origin"
+        }
+      )
+      .then(response => {
+        this.setState({ sights: response.data.results });
+      })
+      .catch(function(err) {
+        console.log("err", err);
+      });
+
+
+      axios
+        .post(
+          "api/google",
+          {
+            sights: this.state.city
+          }
+        ).then(response =>{
+          console.log(response);
+        })
+
+  }
+>>>>>>> 07207948833b844b86e922711afc06e80f6808b1
 
   render() {
     return (
@@ -82,8 +117,10 @@ export default class Body extends Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
-        <Results />
-        <Results />
+
+        <resultContain sights= {this.state.sights}/>
+        <resultContain />
+
       </div>
     );
   }
