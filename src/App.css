@@ -7,12 +7,6 @@ form {
   text-align: center;
 }
 
-<<<<<<< HEAD
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-
-=======
 form {
   width: 50%;
   margin: 32px auto;
@@ -24,7 +18,6 @@ input[type="text"] {
   margin-top: 20px;
   font-size: 20px;
   color: darkgray;
->>>>>>> 07207948833b844b86e922711afc06e80f6808b1
 }
 
 .header {
@@ -43,16 +36,6 @@ input[type="text"] {
   float: left;
 }
 
-<<<<<<< HEAD
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-=======
 .result {
   margin-bottom: 12px;
   position: relative;
@@ -67,5 +50,4 @@ input[type="text"] {
   text-align: center;
   position: relative;
   bottom: 4em;
->>>>>>> 07207948833b844b86e922711afc06e80f6808b1
 }
