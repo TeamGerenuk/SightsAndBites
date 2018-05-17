@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-
 import Search from "../Components/Search";
 import ResultContainer from "../Components/ResultContainer";
 
@@ -70,8 +69,8 @@ export default class Body extends Component {
           handleSubmit={this.handleSubmit}
         />
 
-        <resultContain sights= {this.state.sights}/>
-        <resultContain />
+        <ResultContainer sights= {this.state.sights}/>
+        <ResultContainer />
 
       </div>
     );
