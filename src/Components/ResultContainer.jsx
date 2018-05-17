@@ -5,7 +5,7 @@ export default class ResultsContainer extends Component {
   componentWillReceiveProps(newProps) {}
   render(props) {
     let final;
-    if (this.props.sights.length > 1) {
+    if (this.props.sights > 1) {
       final = this.props.sights.map((sight, i) => {
         return (
           <Result
