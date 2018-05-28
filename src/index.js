@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import Center from 'react-center';
 import Header from './Components/Header.jsx';
 import axios from 'axios';
 import Search from './Components/Search.jsx';
@@ -26,5 +27,9 @@ class App extends Component {
    }
 }
 
-ReactDOM.render(<App />, document.querySelector('.container'));
+ReactDOM.render(<Center>
+    <App /> 
+    </Center>
+    , document.querySelector('.container')
+);
 
