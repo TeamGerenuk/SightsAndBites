@@ -40,7 +40,7 @@ class Search extends Component {
                             console.log(res); 
                             return res })
                         .then((res) => {
-                            this.setState({ sights: res.data.results[0]['formatted_address']});
+                            this.setState({ sights: res.data.results[0]['name']});
                         })
                         .then(console.log(this.state.sights))
                         // .then(console.log(this.state.sights))
