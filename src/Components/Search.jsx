@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-
+import Center from 'react-center';
 
 class Search extends Component {
     constructor(props) {
@@ -50,16 +50,14 @@ class Search extends Component {
                         });
             }
     
-        
-       // testing commits 
-    
 
     render(){
         // const sights=this.state.sight !== [] ? 
         return (
+            <Center>
             <div>
            
-            <h2>{this.state.city}</h2>
+            <h1>{this.state.city}</h1>
             <form onSubmit={event => this.handleSubmit(event)}> 
             <input 
                 value={this.state.city}
@@ -67,6 +65,7 @@ class Search extends Component {
             </form>
             <h3>{this.state.sights}</h3>
             </div>
+            </Center>
         )
     }
 }

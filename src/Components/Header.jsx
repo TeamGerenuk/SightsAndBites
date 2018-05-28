@@ -1,10 +1,13 @@
 import React from 'react';
+import Center from 'react-center';
 
 const Header=({message}) => {
     return (
-        <div>
+       <Center>
+       <div>
             <h1>{message}</h1>
         </div>
+        </Center>
     )
 }
 
