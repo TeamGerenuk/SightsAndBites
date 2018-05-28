@@ -1,8 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import Header from './Components/Header.jsx';
+import axios from 'axios';
+import Search from './Components/Search.jsx';
+import PlacesList from './Components/PlacesList.jsx';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+class App extends Component {
+   constructor(props){
+       super(props);
+
+       this.state = {
+           message:'Sights and Bites'
+       }
+   }
+
+   
+   render(){
+       return (
+           <div>
+               <h2>{this.state.city}</h2>
+               <Header message={this.state.message} />
+               <Search /> 
+           </div>
+       );
+   }
+}
+
+ReactDOM.render(<App />, document.querySelector('.container'));
+
