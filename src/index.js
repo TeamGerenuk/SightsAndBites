@@ -5,6 +5,9 @@ import Header from './Components/Header.jsx';
 import axios from 'axios';
 import Search from './Components/Search.jsx';
 import PlacesList from './Components/PlacesList.jsx';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 class App extends Component {
    constructor(props){
@@ -18,18 +21,23 @@ class App extends Component {
    
    render(){
        return (
+           <Center>
            <div>
                <h2>{this.state.city}</h2>
                <Header message={this.state.message} />
                <Search /> 
            </div>
+           </Center>
        );
    }
 }
 
-ReactDOM.render(<Center>
+ReactDOM.render(
+<MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>
+<Center>
     <App /> 
     </Center>
-    , document.querySelector('.container')
+    </MuiThemeProvider>,
+    document.querySelector('.container')
 );
 
