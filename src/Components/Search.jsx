@@ -60,10 +60,10 @@ class Search extends Component {
     render(){
         // const sights=this.state.sight !== [] ? 
         return (
-            <Center>
             <div>
            
             <h1>{this.state.city}</h1>
+            <Center>
             <RaisedButton
               label="Submit"
               labelColor={grey900}
@@ -78,8 +78,8 @@ class Search extends Component {
                 onChange={event =>this.onInputChange(event.target.value)}/>
             </form>
             <h3>{this.state.sights}</h3>
-            </div>
             </Center>
+            </div>
         )
     }
 }
