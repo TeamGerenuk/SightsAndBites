@@ -13,12 +13,9 @@ class App extends Component {
    constructor(props){
        super(props);
 
-       this.state = {
-           message:'Sights and Bites'
-       }
+       this.state = {}
    }
 
-   
    render(){
        return (
            <Center>
