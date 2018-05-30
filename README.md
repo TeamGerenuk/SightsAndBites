@@ -1,9 +1,25 @@
-# To get this working on localhost:3000
+# ReduxSimpleStarter
 
-1. Install [this chrome extension](https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc)
-2. Enter these settings:
-   ![settings](./cors_settings.png)
+Interested in learning [Redux](https://www.udemy.com/react-redux/)?
 
-3. Run `npm start`
+### Getting Started
 
-4. To do: get images from google then add to img src, get yelp api request working on express server, save yelp api results to mongo db, user accounts, oath...
+There are two methods for getting started with this repo.
+
+#### Familiar with Git?
+Checkout this repo, install dependencies, then start the gulp process with the following:
+
+```
+> git clone https://github.com/StephenGrider/ReduxSimpleStarter.git
+> cd ReduxSimpleStarter
+> npm install
+> npm start
+```
+
+#### Not Familiar with Git?
+Click [here](https://github.com/StephenGrider/ReactStarter/releases) then download the .zip file.  Extract the contents of the zip file, then open your terminal, change to the project directory, and:
+
+```
+> npm install
+> npm start
+```
