@@ -1,11 +1,14 @@
 import React from 'react';
 import Center from 'react-center';
 
-const PlacesItem = (props) => {
-    console.log(props);
+
+const PlacesItem = ({name, address}) => {
+    // console.log(place);
     return (
-        <center>
-        <h2>props.place</h2>
-        </center>
+        <Center>
+        <p>{name + ' ' + address}</p>
+        </Center>
     )
 }
+
+export default PlacesItem;
