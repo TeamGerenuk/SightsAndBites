@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import Header from './Components/Header.jsx';
-import axios from 'axios';
-import Search from './Components/Search.jsx';
-import PlacesList from './Components/PlacesList.jsx';
+import React, { Component } from 'react';	
+import ReactDOM from 'react-dom';	 
+import Center from 'react-center';	
+import Header from './Components/Header.jsx';	 
+import axios from 'axios';	 
+import Search from './Components/Search.jsx';	
+import PlacesList from './Components/PlacesList.jsx';	
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';	
+import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';	
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 class App extends Component {
    
@@ -71,15 +75,21 @@ responseSights(sights) {
    render(){
     
        return (
+           <Center>
            <div>
                <Header message={this.state.message} />
                <Search handleSubmit={this.handleSubmit} onInputChange={this.onInputChange}/>
                <PlacesList sights={this.state.sights} />
                <h3></h3>
            </div>
+           </Center>
        );
    }
 }
 
-ReactDOM.render(<App />, document.querySelector('.container'));
+ReactDOM.render(<MuiThemeProvider muiTheme={getMuiTheme(darkBaseTheme)}>	
+    <Center>	
+    <App /> 	
+    </Center>	
+    </MuiThemeProvider>, document.querySelector('.container'));
 

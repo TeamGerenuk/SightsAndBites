@@ -11,16 +11,15 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 const Search = (props) => {
             return (
             <div>
-            {/* <h1>{props.city}</h1> */}
             <Center>
-            {/* <RaisedButton
+            <RaisedButton
               label="Submit"
               labelColor={grey900}
               backgroundColor={blue500}
               style={{
                 margin: 14,
               }}
-              onClick={event => props.handleSubmit(event)}/>  */}
+              onClick={event => props.handleSubmit(event)}/> 
             <form onSubmit={event => props.handleSubmit(event)}>
             <input 
                 value={props.city}
