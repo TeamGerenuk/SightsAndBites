@@ -1,1 +1,1 @@
-![Screenshot](SightsScreenShot.png)
+Sights and Bites
