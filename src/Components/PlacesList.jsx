@@ -1,24 +1,22 @@
 import React from 'react';
-import PlaceItem from './PlacesItem.jsx';
+import PlacesItem from './PlacesItem.jsx';
 import Center from 'react-center';
 
-const PlacesList = ({sights}) => {
-    // console.log(sights);
-    const PlacesItem= sights.map(place => {
+const PlacesList = (props) => {
+    // console.log(props.sights);
+    const placesItem= props.sights.map(place => {
         return (
-
-        <PlacesItem place={place.name}/>
-          
+        <PlacesItem name={place.name} address={place.formatted_address}/>
+        
         );
     });
-    
+
     return (
         <Center>
-        <h2>
-            {PlacesItem}
-        </h2>
+        <div>
+            {placesItem}
+        </div>
         </Center>
-       
     );
 }
 
