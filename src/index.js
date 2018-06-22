@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';	 
 import Center from 'react-center';	
 	 
-import axios from 'axios';	 
+	 
 	
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';	
 import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';	
