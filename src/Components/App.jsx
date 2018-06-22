@@ -4,6 +4,9 @@ import PlacesList from './PlacesList.jsx';
 import Header from './Header.jsx';
 import axios from 'axios';
 import Center from 'react-center';	
+//we want to import our sights here with redux
+
+
 
 class App extends Component {
    
