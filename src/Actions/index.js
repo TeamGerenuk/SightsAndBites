@@ -12,6 +12,7 @@ const request = axios.get(url);
 
 
     return {
-        type: PLACES
+        type: PLACES;
+        payload: request;
     }
 }
