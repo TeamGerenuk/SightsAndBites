@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import Search from './Search.jsx';	
 import PlacesList from './PlacesList.jsx';
 import Header from './Header.jsx';
 import axios from 'axios';
 import Center from 'react-center';	
+import getPlaces from '../Actions/index.js';
+
 //we want to import our sights here with redux
 
 
@@ -33,41 +36,45 @@ class App extends Component {
  responseSights(sights) {
      this.setState({sights});
  }
-    handleSubmit(e) {
+    
+ handleSubmit(e) {
          
      e.preventDefault();
-     axios.get(
-             "https://maps.googleapis.com/maps/api/place/textsearch/json?query=attractions+in+" +
-             this.state.city +
-             "&key=AIzaSyAuLEO4q3qEIub-ez0kc4QxWW9sHR70kFU",
-                     {
-                     mode: "no-cors",
-                     header: {
-                         "Access-Control-Allow-Orgin": "http://localhost:8080",
-                         "Content-Type": "application/json",
-                         "Access-Control-Allow-Headers":
-                         "Origin, X-Requested-With, Content-Type, Accept"
-                     },
-                     withCredentials: true,
-                     credentials: "same-origin"
-                     }
-                 )
-                 // .then(function(res) { 
-                 //     console.log(res.data.results[0]); 
-                 //     return res })
-                 // .then(function(res) {
-                 //     console.log(res.data.results[0]);
-                 //     return res;
-                 // })
-                 .then((res) => {
-                     this.setState({ sights: res.data.results});
-                 })
-                 .then(console.log(this.state.sights))
-                 // .then(console.log(this.state.sights))
-                 .then()
-                 .catch(function(err) {
-                     console.log("err", err);
-                 });
+
+     this.props.getPlaces(this.state.city);
+     this.setState(city);
+    //  axios.get(
+    //          "https://maps.googleapis.com/maps/api/place/textsearch/json?query=attractions+in+" +
+    //          this.state.city +
+    //          "&key=AIzaSyAuLEO4q3qEIub-ez0kc4QxWW9sHR70kFU",
+    //                  {
+    //                  mode: "no-cors",
+    //                  header: {
+    //                      "Access-Control-Allow-Orgin": "http://localhost:8080",
+    //                      "Content-Type": "application/json",
+    //                      "Access-Control-Allow-Headers":
+    //                      "Origin, X-Requested-With, Content-Type, Accept"
+    //                  },
+    //                  withCredentials: true,
+    //                  credentials: "same-origin"
+    //                  }
+    //              )
+    //              // .then(function(res) { 
+    //              //     console.log(res.data.results[0]); 
+    //              //     return res })
+    //              // .then(function(res) {
+    //              //     console.log(res.data.results[0]);
+    //              //     return res;
+    //              // })
+    //              .then((res) => {
+    //                  this.setState({ sights: res.data.results});
+    //              })
+    //              .then(console.log(this.state.sights))
+    //              // .then(console.log(this.state.sights))
+    //              .then()
+    //              .catch(function(err) {
+    //                  console.log("err", err);
+    //              });
      }
  
  
@@ -87,4 +94,17 @@ class App extends Component {
     }
  }
 
- export default App;
+ 
+// function mapStateToProps(state) {
+//     return {
+//         places: state.places
+//     };
+// }
+
+function mapDispatchToProps(dispatch) {
+
+    return bindActionCreators( { getPlaces }, dispatch)
+   
+}
+
+ export default connect(null, mapDispatchToProps)(App);
