@@ -6,7 +6,7 @@ const PlacesItem = ({name, address}) => {
     // console.log(place);
     return (
         <Center>
-        <p>{name + ' ' + address}</p>
+        <p>{name}</p>
         </Center>
     )
 }
