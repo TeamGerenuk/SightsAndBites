@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import Search from './Search.jsx';	
 import PlacesList from './PlacesList.jsx';
 import Header from './Header.jsx';
