@@ -95,9 +95,9 @@ class App extends Component {
  }
 
  
-function mapStateToProps({getPlaces}) {
+function mapStateToProps({PLACES}) {
     return 
-        {getPlaces}
+        {PLACES}
 }
 
 function mapDispatchToProps(dispatch) {
