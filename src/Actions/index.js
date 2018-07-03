@@ -1,5 +1,4 @@
 import axios from 'axios';
-import requestGoogle from './requestGoogle.js';
 
 const API_KEY = 'AIzaSyAuLEO4q3qEIub-ez0kc4QxWW9sHR70kFU';
 const ROOT_URL = "https://maps.googleapis.com/maps/api/place/textsearch/json?query=attractions+in+";

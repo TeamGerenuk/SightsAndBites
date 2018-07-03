@@ -1,6 +1,7 @@
 import React from 'react';
 import PlacesItem from './PlacesItem.jsx';
 import Center from 'react-center';
+import { connect } from 'react-redux';
 
 const PlacesList = (props) => {
     // console.log(props.sights);
@@ -20,4 +21,8 @@ const PlacesList = (props) => {
     );
 }
 
-export default PlacesList;
+function mapStateToProps({getPlaces}) {
+    return { getPlaces }; // {getPlaces} === {getPlaces: getPlaces}
+}
+
+export default connect(mapStateToProps)(PlacesList);

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Search from './Search.jsx';	
-import PlacesList from './PlacesList.jsx';
-import Header from './Header.jsx';
+import Search from '../Components/Search.jsx';	
+import PlacesList from '../Components/PlacesList.jsx';
+import Header from '../Components/Header.jsx';
 import axios from 'axios';
 import Center from 'react-center';	
 import getPlaces from '../Actions/index.js';
@@ -95,11 +95,10 @@ class App extends Component {
  }
 
  
-// function mapStateToProps(state) {
-//     return {
-//         places: state.places
-//     };
-// }
+function mapStateToProps({getPlaces}) {
+    return 
+        {getPlaces}
+}
 
 function mapDispatchToProps(dispatch) {
 
@@ -107,4 +106,4 @@ function mapDispatchToProps(dispatch) {
    
 }
 
- export default connect(null, mapDispatchToProps)(App);
+ export default connect(null, mapDispatchToProps, mapStateToProps)(App);

@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react';
 import axios from 'axios';
 import Center from 'react-center';
